@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>xamarinmac20</TargetFramework>
+    <RootNamespace>BlazorWebView.Mac</RootNamespace>
+    <AssemblyName>BlazorWebView.Mac</AssemblyName>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <UseSGen>false</UseSGen>
+    <HttpClientHandler>
+    </HttpClientHandler>
+    <LinkMode>
+    </LinkMode>
+    <XamMacArch>
+    </XamMacArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <UseSGen>false</UseSGen>
+    <HttpClientHandler>
+    </HttpClientHandler>
+    <LinkMode>
+    </LinkMode>
+    <XamMacArch>
+    </XamMacArch>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DocumentationFile>$(ProjectDir)$(OutDir)$(MSBuildProjectName).xml</DocumentationFile>
+  </PropertyGroup>
+      <ItemGroup>
+        <Folder Include="Resources" />
+  </ItemGroup>
+   <ItemGroup>
+    <ProjectReference Include="..\BlazorWebView\BlazorWebView.csproj">
+    </ProjectReference>
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0">
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3">
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+     <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="stylecop.json" />
+  </ItemGroup>
+</Project>
