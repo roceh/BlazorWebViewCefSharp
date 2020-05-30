@@ -21,7 +21,7 @@ namespace BlazorApp.CefSharp
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            _run = BlazorWebViewHost.Run<Startup>(_browser, "wwwroot/index.html");
+            _run = BlazorWebViewHost.Run<StartupCefSharp>(_browser, "wwwroot/index.html");
         }
 
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)

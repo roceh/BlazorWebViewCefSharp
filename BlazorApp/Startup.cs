@@ -28,7 +28,7 @@ namespace BlazorApp
         /// Configures and adds services to the servicecollection.
         /// </summary>
         /// <param name="services">The collection of services to add to.</param>
-        public void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
         }
 

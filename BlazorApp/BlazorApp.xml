@@ -4,6 +4,17 @@
         <name>BlazorApp</name>
     </assembly>
     <members>
+        <member name="T:BlazorApp.Services.IWindowService">
+            <summary>
+            Simple interface to show dialogs.
+            </summary>
+        </member>
+        <member name="M:BlazorApp.Services.IWindowService.ShowMessage(System.String)">
+            <summary>
+            Shows a simple message dialog.
+            </summary>
+            <param name="message">message to show ind dialog.</param>
+        </member>
         <member name="T:BlazorApp.Startup">
             <summary>
             Startup class. Adds services and configures components.
