@@ -1,4 +1,4 @@
-import '@microsoft/dotnet-js-interop/dist/Microsoft.JSInterop';
+import '@dotnet/jsinterop/dist/Microsoft.JSInterop';
 import '@browserjs/GlobalExports';
 import { setEventDispatcher } from '@browserjs/Rendering/RendererEventDispatcher';
 import { internalFunctions as navigationManagerFunctions } from '@browserjs/Services/NavigationManager';

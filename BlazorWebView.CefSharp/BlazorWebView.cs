@@ -259,15 +259,7 @@ namespace BlazorWebView.CefSharp
         public void SendMessage(string message)
         {
             message = JsonConvert.ToString(message);
-            EvaluateScript(_browser, $"__dispatchMessageCallback({message})");
-        }
-
-        static object EvaluateScript(ChromiumWebBrowser b, string script)
-        {
-            var task = b.EvaluateScriptAsync(script);
-            task.Wait();
-            JavascriptResponse response = task.Result;
-            return response.Success ? (response.Result ?? "") : response.Message;
+            _browser.EvaluateScriptAsync($"__dispatchMessageCallback({message})");
         }
 
         public void NavigateToUrl(string url)
