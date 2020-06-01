@@ -1,4 +1,5 @@
-﻿using CefSharp;
+﻿using BlazorWebView;
+using CefSharp;
 using CefSharp.Handler;
 using CefSharp.WinForms;
 using Newtonsoft.Json;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace BlazorWebView.CefSharp
+namespace BlazorApp.CefSharp
 {
     public class BlazorWebView : Control, IBlazorWebView
     {
@@ -208,12 +209,11 @@ namespace BlazorWebView.CefSharp
                     _browser.Dispose();
                     _browser = null;
                 }
-
-                Cef.Shutdown();
             }
 
             base.Dispose(disposing);
         }
+
 
         public void Initialize(Action<WebViewOptions> configure)
         {
@@ -222,25 +222,19 @@ namespace BlazorWebView.CefSharp
             var options = new WebViewOptions();
             configure.Invoke(options);
 
-            Cef.EnableHighDPISupport();
-            CefSettings settings = new CefSettings();
-            settings.BackgroundColor = (uint) System.Drawing.Color.FromArgb(255, 27, 40, 56).ToArgb();
-            Cef.Initialize(settings);
-
             _browser = new ChromiumWebBrowser("");
             _browser.RequestHandler = new BrowserRequestHandler(options.SchemeHandlers);
             _browser.MenuHandler = new CustomMenuHandler();
-            _browser.IsBrowserInitializedChanged += _browser_IsBrowserInitializedChanged;
             _browser.JavascriptMessageReceived += Browser_JavascriptMessageReceived;
             _browser.Dock = DockStyle.Fill;
             Controls.Add(_browser);
         }
 
-        private void _browser_IsBrowserInitializedChanged(object sender, EventArgs e)
+        public void ShowDevTools()
         {
             if (_browser.IsBrowserInitialized)
             {
-                //_browser.ShowDevTools();
+                _browser.ShowDevTools();
             }
         }
 
